@@ -5,3 +5,17 @@ body{
     height: 100vh;        /* Viewport-relative units */
     width: 100vw;
 }
+.selectCameraContainer{
+    display: flex;
+    flex-direction: column;
+    max-width: 100px;
+    width: 100%;
+}
+button{
+    position: relative;
+    z-index: 1;
+}
+select{
+    position: relative;
+    z-index: 1;
+}

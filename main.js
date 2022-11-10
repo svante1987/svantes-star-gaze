@@ -6,15 +6,24 @@ window.onload = () => {
         "gps-entity-place",
         `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`
       );
-    console.log("hej");
-    // CUSTOM CODE START
-    var backCam2 = devices.filter((d) => {
-      console.log("kamera koll");
-      return d.label && d.label == "camera2 0, facing back";
-    });
-    if (backCam2.length) {
-      userMediaConstraints.video.deviceId = backCam2[0].deviceId;
-    }
-    // CUSTOM CODE END
+  });
+  // Välj kamera
+  const video = document.getElementById('video');
+  const button = document.getElementById('button');
+  
+  button.addEventListener('click', event => {
+    const constraints = {
+      video: true,
+      audio: false
+    };
+    navigator.mediaDevices
+      .getUserMedia(constraints)
+      .then(stream => {
+        video.srcObject = stream;
+      })
+      .catch(error => {
+        console.error(error);
+      });
   });
 };
+
