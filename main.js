@@ -15,13 +15,13 @@ var userMediaConstraints = {
     facingMode: 'environment',
     width: {
     ideal: _this.parameters.sourceWidth,
-    // min: 1024,
-    // max: 1920
+    min: 1024,
+    max: 1920
     },
     height: {
     ideal: _this.parameters.sourceHeight,
-    // min: 776,
-    // max: 1080
+    min: 776,
+    max: 1080
     }
     }
     }
