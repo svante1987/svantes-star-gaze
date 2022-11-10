@@ -6,30 +6,32 @@ window.onload = () => {
         "gps-entity-place",
         `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`
       );
-  });
-  var userMediaConstraints = {
+    console.log("hej");
+    var userMediaConstraints = {
       audio: false,
       video: {
-      facingMode: 'environment',
-      width: {
-      ideal: _this.parameters.sourceWidth,
-      min: 1024,
-      max: 1920
+        facingMode: "environment",
+        width: {
+          ideal: _this.parameters.sourceWidth,
+         // min: 1024,
+         // max: 1920,
+        },
+        height: {
+          ideal: _this.parameters.sourceHeight,
+          //min: 776,
+          //max: 1080,
+        },
       },
-      height: {
-      ideal: _this.parameters.sourceHeight,
-      min: 776,
-      max: 1080
-      }
-      }
-      }
-      
-      // CUSTOM CODE START
-      var backCam2 = devices.filter(d=>{
+    };
+  
+    // CUSTOM CODE START
+    var backCam2 = devices.filter((d) => {
+      console.log("kamera koll");
       return d.label && d.label == "camera2 0, facing back";
-      })
-      if (backCam2.length) {
-      userMediaConstraints.video.deviceId = backCam2[0].deviceId
-      }
-      // CUSTOM CODE END
+    });
+    if (backCam2.length) {
+      userMediaConstraints.video.deviceId = backCam2[0].deviceId;
+    }
+    // CUSTOM CODE END
+  });
 };
